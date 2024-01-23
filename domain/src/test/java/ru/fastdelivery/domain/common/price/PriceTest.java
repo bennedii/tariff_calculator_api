@@ -52,4 +52,19 @@ class PriceTest {
         assertThatThrownBy(() -> price.max(moreThanPrice))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void distanceTest1(){
+        Price price = new Price(BigDecimal.valueOf(100), new CurrencyFactory(code -> true).create("RUB"));
+        Price secPrice = price.calculateWithDistance(430);
+        assertThat(secPrice).isEqualTo(price);
+    }
+    @Test
+    void distanceTest2(){
+        Price price = new Price(BigDecimal.valueOf(100.0), new CurrencyFactory(code -> true).create("RUB"));
+        Price secPrice = price.calculateWithDistance(900);
+        price = price.multiply(BigDecimal.valueOf(2));
+        assertThat(secPrice).isEqualTo(price);
+    }
+
 }

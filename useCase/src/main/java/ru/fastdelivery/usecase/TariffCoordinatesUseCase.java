@@ -30,8 +30,7 @@ public class TariffCoordinatesUseCase {
     }
 
     public Price calc(Price curPrice, CoordinatesGroup coordinatesGroup){
-        Price price = curPrice.calculateWithDistance(coordinatesGroup.calculateDistance());
-        return price;
+        return curPrice.calculateWithDistance(coordinatesGroup.calculateDistance());
     }
 
 }

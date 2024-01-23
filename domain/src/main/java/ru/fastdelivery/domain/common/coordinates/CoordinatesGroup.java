@@ -31,4 +31,6 @@ public record CoordinatesGroup(
 
         return  (double) (Math.round(R * c * 100)) / 100 ;
     }
+
+
 }
